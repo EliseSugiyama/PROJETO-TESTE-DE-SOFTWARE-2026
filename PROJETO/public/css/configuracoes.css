@@ -1,0 +1,98 @@
+/* Ajuste de layout de duas colunas */
+.dashboard-container.multi-page {
+    grid-template-columns: 240px 1fr;
+}
+
+.main-content.full-width {
+    padding: 30px;
+    overflow-y: auto;
+}
+
+/* Blocos de Configurações */
+.settings-card {
+    background: #fffafb;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 24px;
+    margin-bottom: 24px;
+    max-width: 600px;
+}
+
+.settings-card h3 {
+    font-size: 1.1rem;
+    color: var(--text-main);
+}
+
+/* Formulário Interno */
+.settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.settings-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.settings-form label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.settings-form input {
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background: white;
+    font-size: 0.9rem;
+    color: var(--text-main);
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.settings-form input:focus {
+    border-color: var(--accent-color);
+}
+
+/* Customização da Zona de Perigo */
+.settings-card.danger-zone {
+    border: 1px dashed #cc4444;
+    background: #fff6f6;
+}
+
+.danger-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.danger-icon {
+    font-size: 1.5rem;
+}
+
+.danger-text {
+    font-size: 0.85rem;
+    color: #605252;
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+.btn-danger {
+    background-color: #cc4444;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+
+.btn-danger:hover {
+    background-color: #992222;
+}

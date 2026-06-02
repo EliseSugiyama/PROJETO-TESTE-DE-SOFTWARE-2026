@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Configurações</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/configuracoes.css">
+</head>
+<body>
+
+    <div class="dashboard-container multi-page">
+        <aside class="sidebar">
+            <div class="profile-section">
+                <div class="avatar" id="profile-avatar">U</div>
+                <div class="profile-info">
+                    <h3 id="profile-name-display">Usuário Comum</h3>
+                    <p id="profile-role-display">Minha Agenda</p>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="home.html">Calendário</a>
+                <a href="estatistica.html">Estatísticas</a>
+                <a href="configuracoes.html" class="active">Configurações</a>
+            </nav>
+        </aside>
+
+        <main class="main-content full-width">
+            
+            <div class="schedule-header">
+                <div>
+                    <h2>Configurações do Painel</h2>
+                    <p class="subtitle">Gerencie suas preferências de exibição e dados locais</p>
+                </div>
+            </div>
+
+            <div class="settings-card">
+                <h3>Editar Perfil</h3>
+                <p class="subtitle" style="margin-bottom: 20px;">Altere as informações exibidas na barra lateral</p>
+                
+                <form id="settings-form" class="settings-form">
+                    <div class="form-group">
+                        <label for="user-name-input">Nome de Usuário:</label>
+                        <input type="text" id="user-name-input" placeholder="Ex: João Silva" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="user-role-input">Subtítulo / Função:</label>
+                        <input type="text" id="user-role-input" placeholder="Ex: Cuidados da Família, Minha Agenda">
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Salvar Alterações</button>
+                </form>
+            </div>
+
+            <div class="settings-card danger-zone">
+                <div class="danger-header">
+                    <div>
+                        <h3>Ações Críticas</h3>
+                        <p class="subtitle">Gerenciamento irreversível de dados locais</p>
+                    </div>
+                </div>
+                
+                <p class="danger-text">
+                    Ao clicar no botão abaixo, todos os compromissos, tarefas, status e históricos salvos nesta agenda serão apagados permanentemente do seu navegador.
+                </p>
+                
+                <button id="clear-data-btn" class="btn-danger">Apagar Todos os Dados da Agenda</button>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="../js/configuracoes.js"></script>
+</body>
+</html>

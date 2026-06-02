@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Calendário</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="profile-section">
+                <div class="avatar" id="profile-avatar">U</div>
+                <div class="profile-info">
+                    <h3 id="profile-name-display">Usuário Comum</h3>
+                    <p id="profile-role-display">Minha Agenda</p>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="home.html" class="active">Calendário</a>
+                <a href="estatistica.html">Estatísticas</a>
+                <a href="configuracoes.html">Configurações</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <section id="calendar-view" class="view-section">
+                <div class="schedule-header">
+                    <div>
+                        <h2 id="selected-date-title">Hoje</h2>
+                        <p class="subtitle">Seus compromissos e tarefas</p>
+                    </div>
+                    <button id="open-modal-btn" class="btn-primary">Novo Compromisso</button>
+                </div>
+                <div id="appointments-list" class="appointments-list"></div>
+            </section>
+        </main>
+
+        <aside class="calendar-sidebar" id="right-calendar-sidebar">
+            <div class="mini-calendar">
+                <div class="calendar-header">
+                    <button id="prev-month">&lt;</button>
+                    <h3 id="month-year-display">Julho 2026</h3>
+                    <button id="next-month">&gt;</button>
+                </div>
+                <div class="weekdays">
+                    <div>D</div><div>S</div><div>T</div><div>Q</div><div>Q</div><div>S</div><div>S</div>
+                </div>
+                <div id="calendar-grid" class="calendar-grid"></div>
+            </div>
+        </aside>
+    </div>
+
+    <div id="appointment-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Novo Compromisso</h3>
+            <form id="appointment-form">
+                <div class="form-group">
+                    <label for="app-title">Título / Tipo de Compromisso:</label>
+                    <input type="text" id="app-title" placeholder="Ex: Retorno Cardiologista, Reunião" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="app-time">Horário:</label>
+                        <input type="time" id="app-time" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="app-agent">Pessoa/Médico/Local:</label>
+                        <input type="text" id="app-agent" placeholder="Dr. Diego, Sala 3, etc.">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="app-responsible">Familiar / Responsável:</label>
+                    <input type="text" id="app-responsible" placeholder="Quem vai realizar">
+                </div>
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="app-pending">
+                    <label for="app-pending">Há pendências para este dia? (Exames/Documentos)</label>
+                </div>
+                <div class="form-group">
+                    <label for="app-status">Status Inicial:</label>
+                    <select id="app-status">
+                        <option value="pendente">Pendente</option>
+                        <option value="realizada">Realizada</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%;">Salvar na Agenda</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
