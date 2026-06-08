@@ -1,8 +1,6 @@
 CREATE DATABASE familycare;
 USE familycare;
-
-DROP TABLE IF EXISTS consulta;
-DROP TABLE IF EXISTS usuario;
+drop database familycare; 
 
 CREATE TABLE usuario (
     id_usuario INT AUTO_INCREMENT PRIMARY KEY,
@@ -13,19 +11,18 @@ CREATE TABLE usuario (
     criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Tabela de Consultas/Tarefas médicas (RdN1, RdN2)
--- status: 'a_fazer' | 'feito' | 'pendente' (RdN3, RdN4, RdN5)
+
 CREATE TABLE consulta (
     id INT AUTO_INCREMENT PRIMARY KEY,
     usuario_id INT NOT NULL,
-    titulo VARCHAR(150) NOT NULL,          -- obrigatório (RdN2)
-    tipo VARCHAR(100) NOT NULL,            -- obrigatório (RdN2): consulta, exame, medicamento, etc.
+    titulo VARCHAR(150) NOT NULL,          
+    tipo VARCHAR(100) NOT NULL,            
     data_consulta DATE NOT NULL,
     horario TIME NOT NULL,
     medico_local VARCHAR(150) DEFAULT NULL,
     responsavel VARCHAR(100) DEFAULT NULL,
     tem_pendencias BOOLEAN DEFAULT FALSE,
-    status ENUM('a_fazer', 'feito', 'pendente') DEFAULT 'a_fazer',  -- (RdN3)
+    status ENUM('a_fazer', 'feito', 'pendente') DEFAULT 'a_fazer',  
     criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT fk_usuario_consulta
