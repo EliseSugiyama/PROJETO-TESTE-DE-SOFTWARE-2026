@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Dashboard</title>
-    <!-- Herda as variáveis de cores globais do seu projeto -->
-    <link rel="stylesheet" href="../css/style.css">
-    <!-- Estilo exclusivo e refinado para esta tela -->
-    <link rel="stylesheet" href="../css/login.css">
+    <title>FamilyCare — Login</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
 
     <div class="auth-container">
         <div class="auth-card">
-            
+
             <div class="auth-header">
+                <div class="brand">
+                    <span class="brand-icon">+</span>
+                    <h1>FamilyCare</h1>
+                </div>
                 <h2>Acesse sua Conta</h2>
-                <p class="subtitle">Insira suas credenciais para gerenciar sua agenda</p>
+                <p class="subtitle">Gerencie a saúde da sua família com cuidado</p>
             </div>
 
             <form id="login-form" class="settings-form">
@@ -24,24 +26,26 @@
                     <label for="login-email">E-mail:</label>
                     <input type="email" id="login-email" placeholder="seu.email@exemplo.com" required>
                 </div>
-
                 <div class="form-group">
                     <label for="login-password">Senha:</label>
                     <input type="password" id="login-password" placeholder="Digite sua senha" required>
                 </div>
-
-                <button type="submit" class="btn-primary" style="width: 100%; padding: 14px; margin-top: 10px;">
+                <button type="submit" class="btn-primary" style="width: 100%; padding: 14px; margin-top: 6px;">
                     Entrar no Painel
                 </button>
             </form>
 
             <div class="auth-footer">
-                <p>Não tem uma conta? <a href="cadastro.html" class="auth-link">Cadastre-se aqui</a></p>
+                <p>Nao tem uma conta? <a href="/cadastro" class="auth-link">Cadastre-se aqui</a></p>
+            </div>
+
+            <div class="aviso-medico">
+                O FamilyCare nao realiza diagnosticos medicos nem substitui acompanhamento profissional de saude.
             </div>
 
         </div>
     </div>
 
-    <script src="../js/login.js"></script>
+    <script src="/js/login.js"></script>
 </body>
 </html>

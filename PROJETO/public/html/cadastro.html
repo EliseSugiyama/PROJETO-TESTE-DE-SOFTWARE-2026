@@ -3,17 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro - Dashboard</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/cadastro.css">
+    <title>FamilyCare — Cadastro</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
 
     <div class="auth-container">
         <div class="auth-card">
+
             <div class="auth-header">
+                <div class="brand">
+                    <span class="brand-icon">+</span>
+                    <h1>FamilyCare</h1>
+                </div>
                 <h2>Crie sua Conta</h2>
-                <p class="subtitle">Insira seus dados para acessar o painel de controle</p>
+                <p class="subtitle">Comece a organizar a saude da sua familia</p>
             </div>
 
             <form id="cadastro-form" class="settings-form">
@@ -21,29 +26,26 @@
                     <label for="reg-name">Nome Completo:</label>
                     <input type="text" id="reg-name" placeholder="Ex: Ana Costa" required>
                 </div>
-
                 <div class="form-group">
                     <label for="reg-email">E-mail:</label>
-                    <input type="email" id="reg-email" placeholder="Ex: ana.costa@email.com" required>
+                    <input type="email" id="reg-email" placeholder="ana.costa@email.com" required>
                 </div>
-
                 <div class="form-group">
                     <label for="reg-password">Senha:</label>
-                    <input type="password" id="reg-password" placeholder="No mínimo 6 caracteres" minlength="6" required>
+                    <input type="password" id="reg-password" placeholder="No minimo 6 caracteres" minlength="6" required>
                 </div>
-
-                <div class="form-group checkbox-group" style="margin: 10px 0;">
-                    <input type="checkbox" id="reg-terms" required>
-                    <label for="reg-terms" style="font-size: 0.8rem; color: var(--text-muted);">
-                        Estou ciente de que os dados desta conta serão armazenados localmente neste navegador.
-                    </label>
-                </div>
-
-                <button type="submit" class="btn-primary" style="width: 100%; padding: 14px;">Concluir Cadastro</button>
+                <button type="submit" class="btn-primary" style="width: 100%; padding: 14px;">
+                    Criar Conta
+                </button>
             </form>
+
+            <div class="auth-footer">
+                <p>Ja tem uma conta? <a href="/" class="auth-link">Faca login aqui</a></p>
+            </div>
+
         </div>
     </div>
 
-    <script src="../js/cadastro.js"></script>
+    <script src="/js/cadastro.js"></script>
 </body>
 </html>

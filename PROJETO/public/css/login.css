@@ -1,94 +1,27 @@
-body {
-    background-color: #f7f3f4; /* Fundo neutro e confortável para os olhos */
-    margin: 0;
-    padding: 0;
-}
+.auth-card { box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
 
-.auth-container {
+.brand {
     display: flex;
-    justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-.auth-card {
-    background: #fffafb;
-    border: 1px solid var(--border-color);
-    border-radius: 24px;
-    padding: 40px;
-    width: 100%;
-    max-width: 420px;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04);
-}
-
-.auth-header {
-    text-align: center;
-    margin-bottom: 32px;
-}
-
-.auth-header h2 {
-    font-size: 1.7rem;
-    color: var(--text-main);
+    justify-content: center;
+    gap: 10px;
     margin-bottom: 8px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
 }
-
-/* Formulário e Inputs */
-.settings-form {
+.brand-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 800;
     display: flex;
-    flex-direction: column;
-    gap: 18px;
+    align-items: center;
+    justify-content: center;
 }
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.form-group label {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--text-main);
-}
-
-.settings-form input[type="email"],
-.settings-form input[type="password"] {
-    padding: 14px;
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    background: white;
-    font-size: 0.95rem;
-    color: var(--text-main);
-    outline: none;
-    transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.settings-form input[type="email"]:focus,
-.settings-form input[type="password"]:focus {
-    border-color: var(--accent-color);
-    box-shadow: 0 0 0 3px var(--accent-light);
-}
-
-/* Link de alternância para cadastro */
-.auth-footer {
-    margin-top: 28px;
-    text-align: center;
-    font-size: 0.85rem;
-    color: var(--text-muted);
-}
-
-.auth-link {
-    color: var(--accent-color);
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s;
-}
-
-.auth-link:hover {
-    color: var(--accent-dark);
-    text-decoration: underline;
+.brand h1 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: -0.03em;
 }

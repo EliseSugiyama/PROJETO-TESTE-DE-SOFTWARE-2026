@@ -3,118 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Estatísticas</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/estatistica.css">
+    <title>FamilyCare — Estatisticas</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/estatistica.css">
 </head>
 <body>
 
     <div class="dashboard-container multi-page">
         <aside class="sidebar">
             <div class="profile-section">
-                <div class="avatar" id="profile-avatar">U</div>
+                <div class="avatar" id="profile-avatar">F</div>
                 <div class="profile-info">
-                    <h3 id="profile-name-display">Usuário Comum</h3>
-                    <p id="profile-role-display">Minha Agenda</p>
+                    <h3 id="profile-name-display">Carregando...</h3>
+                    <p id="profile-role-display">FamilyCare</p>
                 </div>
             </div>
             <nav class="sidebar-nav">
-                <a href="home.html">Calendário</a>
-                <a href="estatistica.html" class="active">Estatísticas</a>
-                <a href="configuracoes.html">Configurações</a>
+                <a href="/home">Painel</a>
+                <a href="/estatistica" class="active">Estatisticas</a>
+                <a href="/configuracoes">Configuracoes</a>
             </nav>
+            <div class="sidebar-footer">
+                <button id="logout-btn" class="btn-logout">Sair</button>
+            </div>
         </aside>
 
         <main class="main-content full-width">
-            
+
             <div class="schedule-header">
                 <div>
-                    <h2>Relatório de Produtividade</h2>
-                    <p class="subtitle">Acompanhe seu desempenho e pendências gerais</p>
+                    <h2>Relatorio de Saude</h2>
+                    <p class="subtitle">Acompanhe o progresso das consultas e tarefas medicas</p>
                 </div>
             </div>
 
             <div class="analytics-cards">
                 <div class="metric-card total">
-                    <div class="metric-data">
-                        <span class="metric-value" id="total-tasks">0</span>
-                        <span class="metric-label">Total Cadastrado</span>
-                    </div>
+                    <span class="metric-value" id="total-tasks">0</span>
+                    <span class="metric-label">Total Cadastrado</span>
                 </div>
                 <div class="metric-card done">
-                    <div class="metric-data">
-                        <span class="metric-value" id="done-tasks">0</span>
-                        <span class="metric-label">Realizados</span>
-                    </div>
+                    <span class="metric-value" id="done-tasks">0</span>
+                    <span class="metric-label">Concluidos</span>
                 </div>
                 <div class="metric-card alert">
-                    <div class="metric-data">
-                        <span class="metric-value" id="pending-exams">0</span>
-                        <span class="metric-label">Com Pendências</span>
-                    </div>
+                    <span class="metric-value" id="pending-tasks">0</span>
+                    <span class="metric-label">Pendentes</span>
+                </div>
+                <div class="metric-card pending-status">
+                    <span class="metric-value" id="pending-exams">0</span>
+                    <span class="metric-label">Com Pendencias</span>
                 </div>
             </div>
 
             <div class="dashboard-charts-grid">
-                
+
                 <div class="chart-container-box">
-                    <h3>Atividades Concluídas nesta Semana</h3>
-                    <p class="subtitle" style="margin-bottom: 20px;">Distribuição de tarefas feitas por dia da semana</p>
-                    
+                    <h3>Concluidos por Dia da Semana</h3>
+                    <p class="subtitle" style="margin-bottom: 16px;">Distribuicao de tarefas realizadas</p>
                     <div class="weekly-bar-chart">
-                        <div class="chart-bar-wrapper">
-                            <div class="bar-fill" id="bar-dom" style="height: 0%;"></div>
-                            <span class="bar-day">Dom</span>
-                        </div>
-                        <div class="chart-bar-wrapper">
-                            <div class="bar-fill" id="bar-seg" style="height: 0%;"></div>
-                            <span class="bar-day">Seg</span>
-                        </div>
-                        <div class="chart-bar-wrapper">
-                            <div class="bar-fill" id="bar-ter" style="height: 0%;"></div>
-                            <span class="bar-day">Ter</span>
-                        </div>
-                        <div class="chart-bar-wrapper">
-                            <div class="bar-fill" id="bar-qua" style="height: 0%;"></div>
-                            <span class="bar-day">Qua</span>
-                        </div>
-                        <div class="chart-bar-wrapper">
-                            <div class="bar-fill" id="bar-qui" style="height: 0%;"></div>
-                            <span class="bar-day">Qui</span>
-                        </div>
-                        <div class="chart-bar-wrapper">
-                            <div class="bar-fill" id="bar-sex" style="height: 0%;"></div>
-                            <span class="bar-day">Sex</span>
-                        </div>
-                        <div class="chart-bar-wrapper">
-                            <div class="bar-fill" id="bar-sab" style="height: 0%;"></div>
-                            <span class="bar-day">Sáb</span>
-                        </div>
+                        <div class="chart-bar-wrapper"><div class="bar-fill" id="bar-dom" style="height:0%"></div><span class="bar-day">Dom</span></div>
+                        <div class="chart-bar-wrapper"><div class="bar-fill" id="bar-seg" style="height:0%"></div><span class="bar-day">Seg</span></div>
+                        <div class="chart-bar-wrapper"><div class="bar-fill" id="bar-ter" style="height:0%"></div><span class="bar-day">Ter</span></div>
+                        <div class="chart-bar-wrapper"><div class="bar-fill" id="bar-qua" style="height:0%"></div><span class="bar-day">Qua</span></div>
+                        <div class="chart-bar-wrapper"><div class="bar-fill" id="bar-qui" style="height:0%"></div><span class="bar-day">Qui</span></div>
+                        <div class="chart-bar-wrapper"><div class="bar-fill" id="bar-sex" style="height:0%"></div><span class="bar-day">Sex</span></div>
+                        <div class="chart-bar-wrapper"><div class="bar-fill" id="bar-sab" style="height:0%"></div><span class="bar-day">Sab</span></div>
                     </div>
                 </div>
 
                 <div class="chart-container-box efficiency-box">
-                    <h3>Taxa de Conclusão Geral</h3>
+                    <h3>Taxa de Conclusao Geral</h3>
                     <div class="progress-ring-wrapper">
                         <div class="global-progress-bar-bg">
-                            <div id="stats-progress-fill" class="global-progress-bar-inner"></div>
+                            <div id="stats-progress-fill" class="global-progress-bar-inner" style="width:0%"></div>
                         </div>
                         <h1 id="stats-progress-percent">0%</h1>
                     </div>
-                    <p class="efficiency-footer-text" id="efficiency-msg">Carregando métricas...</p>
+                    <p class="efficiency-footer-text" id="efficiency-msg">Carregando metricas...</p>
                 </div>
 
             </div>
 
             <div class="recent-activity-box">
-                <h3>Últimas Atividades Concluídas</h3>
-                <ul id="recent-done-list" class="recent-list">
-                    </ul>
+                <h3>Ultimas Atividades</h3>
+                <ul id="recent-done-list" class="recent-list"></ul>
             </div>
 
         </main>
     </div>
 
-    <script src="../js/stats.js"></script>
+    <script src="/js/stats.js"></script>
 </body>
 </html>

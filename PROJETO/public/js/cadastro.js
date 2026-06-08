@@ -1,24 +1,34 @@
-document.getElementById('cadastro-form').addEventListener('submit', function(e) {
+document.getElementById('cadastro-form').addEventListener('submit', async function (e) {
     e.preventDefault();
 
-    const nameInput = document.getElementById('reg-name').value.trim();
-    const emailInput = document.getElementById('reg-email').value.trim();
-    const passwordInput = document.getElementById('reg-password').value;
+    const nome  = document.getElementById('reg-name').value.trim();
+    const email = document.getElementById('reg-email').value.trim();
+    const senha = document.getElementById('reg-password').value;
 
-    if (nameInput && emailInput && passwordInput) {
-        // Guarda as informações básicas e de segurança simulada
-        localStorage.setItem('profileName', nameInput);
-        localStorage.setItem('profileEmail', emailInput);
-        localStorage.setItem('profilePassword', passwordInput)
-        
-        // Em um sistema real com backend, o e-mail substituiria o subtítulo padrão
-        localStorage.setItem('profileRole', emailInput); 
-        
-        localStorage.setItem('userRegistered', 'true');
+    if (!nome || !email || !senha) {
+        alert('Preencha todos os campos.');
+        return;
+    }
 
-        // Redireciona para a tela principal
-        window.location.href = 'index.html';
-    } else {
-        alert('Por favor, preencha todos os campos obrigatórios.');
+    try {
+        const response = await fetch('/api/usuario/cadastrar', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ nome, email, senha })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            alert(data.erro || 'Erro ao cadastrar.');
+            return;
+        }
+
+        alert('Conta criada com sucesso! Faca login para continuar.');
+        window.location.href = '/';
+
+    } catch (err) {
+        alert('Erro de conexao com o servidor.');
+        console.error(err);
     }
 });

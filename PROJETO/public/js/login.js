@@ -1,27 +1,29 @@
-document.getElementById('login-form').addEventListener('submit', function(e) {
+document.getElementById('login-form').addEventListener('submit', async function (e) {
     e.preventDefault();
 
-    const emailInput = document.getElementById('login-email').value.trim();
-    const passwordInput = document.getElementById('login-password').value;
+    const email = document.getElementById('login-email').value.trim();
+    const senha = document.getElementById('login-password').value;
 
-    // Puxa as credenciais gravadas no momento do cadastro
-    const registeredEmail = localStorage.getItem('profileEmail');
-    const registeredPassword = localStorage.getItem('profilePassword');
+    try {
+        const response = await fetch('/api/usuario/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, senha })
+        });
 
-    // Validação simulada baseada nos dados locais
-    if (!registeredEmail) {
-        alert('Nenhuma conta encontrada neste navegador. Por favor, faça o cadastro primeiro.');
-        window.location.href = 'cadastro.html';
-        return;
-    }
+        const data = await response.json();
 
-    if (emailInput === registeredEmail && passwordInput === registeredPassword) {
-        // Define que o usuário está autenticado na sessão atual
+        if (!response.ok) {
+            alert(data.erro || 'E-mail ou senha incorretos.');
+            return;
+        }
+
         sessionStorage.setItem('userAuthenticated', 'true');
-        
-        // Redireciona para o painel do calendário
-        window.location.href = 'home.html';
-    } else {
-        alert('E-mail ou senha incorretos. Tente novamente.');
+        sessionStorage.setItem('usuario', JSON.stringify(data.usuario));
+        window.location.href = '/home';
+
+    } catch (err) {
+        alert('Erro de conexao com o servidor. Verifique se o servidor esta rodando na porta 3000.');
+        console.error(err);
     }
 });
