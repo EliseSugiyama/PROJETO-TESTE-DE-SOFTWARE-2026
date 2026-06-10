@@ -412,3 +412,39 @@ body {
     line-height: 1.5;
     text-align: center;
 }
+
+
+.sidebar-footer { 
+    padding: 16px 16px 0 16px; /* 🚀 Ajustado: adiciona espaçamento nas laterais para descolar o botão da borda */
+    border-top: 1px solid var(--border); 
+    margin-top: auto; 
+    width: 100%; /* Garante que o container ocupe toda a largura da sidebar */
+}
+
+/* Botao logout na sidebar */
+.btn-logout {
+    width: 100%;
+    padding: 10px; /* 🚀 Aumentado levemente para dar melhor área de clique */
+    font-size: 0.85rem;
+    font-weight: 600;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;         /* 🚀 Adicionado: centraliza o texto "Sair" perfeitamente */
+    align-items: center;    /* 🚀 Adicionado: alinhamento vertical */
+    justify-content: center;/* 🚀 Adicionado: alinhamento horizontal */
+    transition: all 0.2s;
+}
+
+.btn-logout:hover {
+    background: rgba(231, 76, 60, 0.1); /* Efeito suave com o tom de --danger */
+    border-color: var(--danger);
+    color: var(--danger);
+}
+
+/* 🚀 Adicionado: feedback visual ao clicar */
+.btn-logout:active {
+    transform: scale(0.98);
+}
