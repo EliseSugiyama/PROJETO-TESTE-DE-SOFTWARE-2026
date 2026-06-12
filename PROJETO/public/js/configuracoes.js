@@ -1,7 +1,5 @@
 const usuarioSalvo = sessionStorage.getItem('usuario');
-if (!sessionStorage.getItem('userAuthenticated') || !usuarioSalvo) {
-    window.location.href = '/';
-}
+if (!sessionStorage.getItem('userAuthenticated') || !usuarioSalvo) { window.location.href = '/'; }
 const usuario = JSON.parse(usuarioSalvo);
 
 function initSettingsPage() {
@@ -22,13 +20,12 @@ function loadCurrentSettings() {
 function setupEventListeners() {
     document.getElementById('settings-form').addEventListener('submit', async e => {
         e.preventDefault();
-        const nome            = document.getElementById('user-name-input').value.trim();
+        const nome             = document.getElementById('user-name-input').value.trim();
         const funcao_subtitulo = document.getElementById('user-role-input').value.trim();
 
         try {
-            const res  = await fetch(`/api/usuario/atualizar/${usuario.id_usuario}`, {
+            const res  = await apiFetch(`/api/usuario/atualizar/${usuario.id_usuario}`, {
                 method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ nome, funcao_subtitulo })
             });
             const data = await res.json();
@@ -45,9 +42,9 @@ function setupEventListeners() {
         if (!confirm('Apagar TODAS as consultas desta conta?')) return;
         if (!confirm('Esta acao nao pode ser desfeita. Confirma?')) return;
         try {
-            const res   = await fetch(`/api/consulta/listar/${usuario.id_usuario}`);
+            const res   = await apiFetch(`/api/consulta/listar/${usuario.id_usuario}`);
             const lista = await res.json();
-            await Promise.all(lista.map(c => fetch(`/api/consulta/${c.id}`, { method: 'DELETE' })));
+            await Promise.all(lista.map(c => apiFetch(`/api/consulta/${c.id}`, { method: 'DELETE' })));
             alert('Todos os dados da agenda foram apagados.');
         } catch (err) { alert('Erro ao apagar dados.'); console.error(err); }
     });

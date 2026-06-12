@@ -18,7 +18,9 @@ document.getElementById('login-form').addEventListener('submit', async function 
             return;
         }
 
+        // RdN6: armazena token JWT junto com os dados do usuário
         sessionStorage.setItem('userAuthenticated', 'true');
+        sessionStorage.setItem('token', data.token);
         sessionStorage.setItem('usuario', JSON.stringify(data.usuario));
         window.location.href = '/home';
 

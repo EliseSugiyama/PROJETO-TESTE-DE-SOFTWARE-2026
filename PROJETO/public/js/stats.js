@@ -1,7 +1,5 @@
 const usuarioSalvo = sessionStorage.getItem('usuario');
-if (!sessionStorage.getItem('userAuthenticated') || !usuarioSalvo) {
-    window.location.href = '/';
-}
+if (!sessionStorage.getItem('userAuthenticated') || !usuarioSalvo) { window.location.href = '/'; }
 const usuario = JSON.parse(usuarioSalvo);
 
 async function initStatsPage() {
@@ -19,10 +17,10 @@ function loadProfileHeader() {
 async function calculateStatistics() {
     try {
         const [estRes, listRes] = await Promise.all([
-            fetch(`/api/consulta/estatisticas/${usuario.id_usuario}`),
-            fetch(`/api/consulta/listar/${usuario.id_usuario}`)
+            apiFetch(`/api/consulta/estatisticas/${usuario.id_usuario}`),
+            apiFetch(`/api/consulta/listar/${usuario.id_usuario}`)
         ]);
-        const est  = await estRes.json();
+        const est   = await estRes.json();
         const lista = await listRes.json();
 
         const total         = parseInt(est.totais.total)          || 0;
@@ -46,7 +44,6 @@ async function calculateStatistics() {
         else if (total === 0)              msgEl.textContent = 'Nenhuma consulta registrada ainda.';
         else                               msgEl.textContent = 'Atencao: ha consultas pendentes.';
 
-        // Barras por dia da semana
         const weekly = [0,0,0,0,0,0,0];
         est.por_dia_semana.forEach(row => {
             const d = parseInt(row.dia_semana);
@@ -58,12 +55,7 @@ async function calculateStatistics() {
             if (el) { el.style.height = `${(weekly[i]/maxVal)*100}%`; el.title = `${weekly[i]} concluida(s)`; }
         });
 
-        // Ultimas atividades
-        const recentes = lista
-            .filter(c => c.status === 'feito' || c.status === 'pendente')
-            .slice(-5)
-            .reverse();
-
+        const recentes = lista.filter(c => c.status === 'feito' || c.status === 'pendente').slice(-5).reverse();
         const listEl = document.getElementById('recent-done-list');
         listEl.innerHTML = '';
 
@@ -73,19 +65,15 @@ async function calculateStatistics() {
         }
 
         recentes.forEach(c => {
-            const data = c.data_consulta.toString().substring(0,10).split('-').reverse().slice(0,2).join('/');
-            const hora = c.horario.substring(0,5);
+            const data  = c.data_consulta.toString().substring(0,10).split('-').reverse().slice(0,2).join('/');
+            const hora  = c.horario.substring(0,5);
             const badge = c.status === 'feito'
                 ? `<span class="recent-badge-done">FEITO</span>`
                 : `<span class="recent-badge-pendente">PENDENTE</span>`;
             const li = document.createElement('li');
             li.classList.add('recent-item');
             li.innerHTML = `
-                <div class="recent-item-info">
-                    ${badge}
-                    <strong>${c.titulo}</strong>
-                    <span style="font-size:0.75rem;color:var(--text-muted)">${c.tipo}</span>
-                </div>
+                <div class="recent-item-info">${badge}<strong>${c.titulo}</strong><span style="font-size:0.75rem;color:var(--text-muted)">${c.tipo}</span></div>
                 <span style="color:var(--text-muted);font-size:0.8rem;white-space:nowrap;">${data} as ${hora}</span>
             `;
             listEl.appendChild(li);
@@ -96,14 +84,8 @@ async function calculateStatistics() {
         console.error(err);
     }
 
-    // Logout
     const logoutBtn = document.getElementById('logout-btn');
-    if (logoutBtn) {
-        logoutBtn.addEventListener('click', () => {
-            sessionStorage.clear();
-            window.location.href = '/';
-        });
-    }
+    if (logoutBtn) logoutBtn.addEventListener('click', () => { sessionStorage.clear(); window.location.href = '/'; });
 }
 
 window.onload = initStatsPage;

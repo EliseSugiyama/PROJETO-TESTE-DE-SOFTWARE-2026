@@ -1,27 +1,24 @@
-// Autenticacao
 const usuarioSalvo = sessionStorage.getItem('usuario');
 if (!sessionStorage.getItem('userAuthenticated') || !usuarioSalvo) {
     window.location.href = '/';
 }
 const usuario = JSON.parse(usuarioSalvo);
 
-// Estado
-let currentDate   = new Date();
+let currentDate     = new Date();
 let selectedDateStr = formatDateKey(new Date());
-let eventsData    = {};
-let editandoId    = null;
+let eventsData      = {};
+let editandoId      = null;
 
-// DOM
-const monthYearDisplay   = document.getElementById('month-year-display');
-const calendarGrid       = document.getElementById('calendar-grid');
-const appointmentsList   = document.getElementById('appointments-list');
-const selectedDateTitle  = document.getElementById('selected-date-title');
-const selectedDateSubtitle = document.getElementById('selected-date-subtitle');
-const modal              = document.getElementById('appointment-modal');
-const openModalBtn       = document.getElementById('open-modal-btn');
-const closeModalBtn      = document.querySelector('.close-modal');
-const appointmentForm    = document.getElementById('appointment-form');
-const upcomingList       = document.getElementById('upcoming-list');
+const monthYearDisplay    = document.getElementById('month-year-display');
+const calendarGrid        = document.getElementById('calendar-grid');
+const appointmentsList    = document.getElementById('appointments-list');
+const selectedDateTitle   = document.getElementById('selected-date-title');
+const selectedDateSubtitle= document.getElementById('selected-date-subtitle');
+const modal               = document.getElementById('appointment-modal');
+const openModalBtn        = document.getElementById('open-modal-btn');
+const closeModalBtn       = document.querySelector('.close-modal');
+const appointmentForm     = document.getElementById('appointment-form');
+const upcomingList        = document.getElementById('upcoming-list');
 
 const MESES = ["Janeiro","Fevereiro","Marco","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
 const DIAS  = ["Domingo","Segunda","Terca","Quarta","Quinta","Sexta","Sabado"];
@@ -30,7 +27,6 @@ function formatDateKey(date) {
     return `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`;
 }
 
-// --- Init ---
 async function init() {
     loadProfile();
     await carregarConsultas();
@@ -46,11 +42,11 @@ function loadProfile() {
     document.getElementById('profile-avatar').textContent = (usuario.nome || 'F').charAt(0).toUpperCase();
 }
 
-// --- API ---
 async function carregarConsultas() {
     try {
-        const res = await fetch(`/api/consulta/listar/${usuario.id_usuario}`);
-        if (!res.ok) throw new Error('Falha ao buscar consultas');
+        // usa apiFetch com token JWT
+        const res = await apiFetch(`/api/consulta/listar/${usuario.id_usuario}`);
+        if (!res || !res.ok) throw new Error('Falha ao buscar consultas');
         const lista = await res.json();
         eventsData = {};
         lista.forEach(c => {
@@ -64,13 +60,12 @@ async function carregarConsultas() {
                 medico_local: c.medico_local,
                 responsavel: c.responsavel,
                 tem_pendencias: c.tem_pendencias === 1 || c.tem_pendencias === true,
-                status: c.status
+                status: c.status  // status já vem correto do banco
             });
         });
     } catch (err) { console.error('Erro ao carregar consultas:', err); }
 }
 
-// --- Calendario ---
 function renderCalendar() {
     calendarGrid.innerHTML = '';
     const year  = currentDate.getFullYear();
@@ -90,7 +85,7 @@ function renderCalendar() {
         const el = document.createElement('div');
         el.classList.add('calendar-day');
         el.textContent = day;
-        if (dateStr === selectedDateStr)    el.classList.add('selected');
+        if (dateStr === selectedDateStr)     el.classList.add('selected');
         if (eventsData[dateStr]?.length > 0) el.classList.add('has-events');
         el.addEventListener('click', () => {
             document.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('selected'));
@@ -102,28 +97,19 @@ function renderCalendar() {
     }
 }
 
-// --- Lista de consultas ---
-function verificarPendente(lista, dateKey) {
-    const hoje = formatDateKey(new Date());
-    if (dateKey < hoje) lista.forEach(c => { if (c.status === 'a_fazer') c.status = 'pendente'; });
-}
-
 function renderAppointments() {
     appointmentsList.innerHTML = '';
-
     const [y,m,d] = selectedDateStr.split('-');
     const dateObj = new Date(parseInt(y), parseInt(m)-1, parseInt(d));
     selectedDateTitle.textContent    = `${String(d).replace(/^0/,'')} de ${MESES[parseInt(m)-1]}`;
     selectedDateSubtitle.textContent = DIAS[dateObj.getDay()];
 
     const dayEvents = (eventsData[selectedDateStr] || []).slice();
-    verificarPendente(dayEvents, selectedDateStr);
 
-    // Atualiza cards de resumo
-    document.getElementById('summary-total').textContent   = dayEvents.length;
-    document.getElementById('summary-feito').textContent   = dayEvents.filter(e => e.status === 'feito').length;
-    document.getElementById('summary-afazer').textContent  = dayEvents.filter(e => e.status === 'a_fazer').length;
-    document.getElementById('summary-pendente').textContent= dayEvents.filter(e => e.status === 'pendente').length;
+    document.getElementById('summary-total').textContent    = dayEvents.length;
+    document.getElementById('summary-feito').textContent    = dayEvents.filter(e => e.status === 'feito').length;
+    document.getElementById('summary-afazer').textContent   = dayEvents.filter(e => e.status === 'a_fazer').length;
+    document.getElementById('summary-pendente').textContent = dayEvents.filter(e => e.status === 'pendente').length;
 
     if (dayEvents.length === 0) {
         appointmentsList.innerHTML = `<p style="color:var(--text-muted);text-align:center;padding:32px 0;font-size:0.9rem;">Nenhuma consulta marcada para este dia.</p>`;
@@ -143,7 +129,7 @@ function renderAppointments() {
             <div class="card-grid-details">
                 <div><strong>Medico / Local:</strong> ${ev.medico_local || 'Nao informado'}</div>
                 <div><strong>Responsavel:</strong> ${ev.responsavel || 'Nao informado'}</div>
-                <div><strong>Pendencias:</strong> ${ev.tem_pendencias ? 'Sim — exames ou documentos' : 'Nenhuma'}</div>
+                <div><strong>Pendencias:</strong> ${ev.tem_pendencias ? 'Sim' : 'Nenhuma'}</div>
             </div>
             <div class="card-actions">
                 ${ev.status !== 'feito'
@@ -165,7 +151,6 @@ function labelStatus(s) {
     return s;
 }
 
-// --- Proximas consultas (sidebar) ---
 function renderUpcoming() {
     if (!upcomingList) return;
     upcomingList.innerHTML = '';
@@ -201,18 +186,16 @@ function renderUpcoming() {
     });
 }
 
-// --- Acoes ---
 window.marcarFeito  = async (id, key) => alterarStatus(id, key, 'feito');
 window.marcarAFazer = async (id, key) => alterarStatus(id, key, 'a_fazer');
 
 async function alterarStatus(id, dateKey, status) {
     try {
-        const res = await fetch(`/api/consulta/status/${id}`, {
+        const res = await apiFetch(`/api/consulta/status/${id}`, {
             method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ status })
         });
-        if (!res.ok) throw new Error('Falha ao atualizar status');
+        if (!res || !res.ok) throw new Error('Falha ao atualizar status');
         const ev = eventsData[dateKey]?.find(e => e.id === id);
         if (ev) ev.status = status;
         renderAppointments();
@@ -223,22 +206,22 @@ window.abrirEdicao = function(id, dateKey) {
     const ev = eventsData[dateKey]?.find(e => e.id === id);
     if (!ev) return;
     editandoId = id;
-    document.getElementById('modal-title').textContent    = 'Editar Consulta';
-    document.getElementById('edit-id').value              = id;
-    document.getElementById('app-title').value            = ev.titulo;
-    document.getElementById('app-tipo').value             = ev.tipo;
-    document.getElementById('app-time').value             = ev.horario;
-    document.getElementById('app-agent').value            = ev.medico_local || '';
-    document.getElementById('app-responsible').value      = ev.responsavel || '';
-    document.getElementById('app-pending').checked        = ev.tem_pendencias;
+    document.getElementById('modal-title').textContent   = 'Editar Consulta';
+    document.getElementById('edit-id').value             = id;
+    document.getElementById('app-title').value           = ev.titulo;
+    document.getElementById('app-tipo').value            = ev.tipo;
+    document.getElementById('app-time').value            = ev.horario;
+    document.getElementById('app-agent').value           = ev.medico_local || '';
+    document.getElementById('app-responsible').value     = ev.responsavel || '';
+    document.getElementById('app-pending').checked       = ev.tem_pendencias;
     modal.style.display = 'flex';
 };
 
 window.deletarConsulta = async function(id, dateKey) {
     if (!confirm('Excluir esta consulta?')) return;
     try {
-        const res = await fetch(`/api/consulta/${id}`, { method: 'DELETE' });
-        if (!res.ok) throw new Error('Falha ao excluir');
+        const res = await apiFetch(`/api/consulta/${id}`, { method: 'DELETE' });
+        if (!res || !res.ok) throw new Error('Falha ao excluir');
         eventsData[dateKey] = eventsData[dateKey].filter(e => e.id !== id);
         renderCalendar();
         renderAppointments();
@@ -253,16 +236,9 @@ function resetModal() {
     document.getElementById('edit-id').value = '';
 }
 
-// --- Eventos ---
 function setupEventListeners() {
-    document.getElementById('prev-month').addEventListener('click', () => {
-        currentDate.setMonth(currentDate.getMonth() - 1);
-        renderCalendar();
-    });
-    document.getElementById('next-month').addEventListener('click', () => {
-        currentDate.setMonth(currentDate.getMonth() + 1);
-        renderCalendar();
-    });
+    document.getElementById('prev-month').addEventListener('click', () => { currentDate.setMonth(currentDate.getMonth()-1); renderCalendar(); });
+    document.getElementById('next-month').addEventListener('click', () => { currentDate.setMonth(currentDate.getMonth()+1); renderCalendar(); });
 
     openModalBtn.addEventListener('click', () => { resetModal(); modal.style.display = 'flex'; });
     closeModalBtn.addEventListener('click', () => { resetModal(); modal.style.display = 'none'; });
@@ -275,34 +251,24 @@ function setupEventListeners() {
 
     appointmentForm.addEventListener('submit', async e => {
         e.preventDefault();
-
         const payload = {
-            titulo:        document.getElementById('app-title').value,
-            tipo:          document.getElementById('app-tipo').value,
-            data_consulta: selectedDateStr,
-            horario:       document.getElementById('app-time').value,
-            medico_local:  document.getElementById('app-agent').value,
-            responsavel:   document.getElementById('app-responsible').value,
+            titulo:         document.getElementById('app-title').value,
+            tipo:           document.getElementById('app-tipo').value,
+            data_consulta:  selectedDateStr,
+            horario:        document.getElementById('app-time').value,
+            medico_local:   document.getElementById('app-agent').value,
+            responsavel:    document.getElementById('app-responsible').value,
             tem_pendencias: document.getElementById('app-pending').checked
         };
 
         try {
-            let res, data;
+            let res;
             if (editandoId) {
-                res  = await fetch(`/api/consulta/editar/${editandoId}`, {
-                    method: 'PUT',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
+                res = await apiFetch(`/api/consulta/editar/${editandoId}`, { method: 'PUT', body: JSON.stringify(payload) });
             } else {
-                res = await fetch('/api/consulta/criar', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ usuario_id: usuario.id_usuario, ...payload })
-                });
+                res = await apiFetch('/api/consulta/criar', { method: 'POST', body: JSON.stringify({ usuario_id: usuario.id_usuario, ...payload }) });
             }
-
-            data = await res.json();
+            const data = await res.json();
             if (!res.ok) { alert(data.erro || 'Erro ao salvar.'); return; }
 
             await carregarConsultas();
@@ -311,7 +277,6 @@ function setupEventListeners() {
             renderUpcoming();
             modal.style.display = 'none';
             resetModal();
-
         } catch (err) { alert('Erro ao salvar consulta.'); console.error(err); }
     });
 }

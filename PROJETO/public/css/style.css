@@ -413,6 +413,25 @@ body {
     text-align: center;
 }
 
+/* RdN9/10 — Aviso médico fixo no rodapé das páginas internas */
+.aviso-medico-footer {
+    position: fixed;
+    bottom: 0;
+    left: 220px; /* largura da sidebar */
+    right: 0;
+    background: rgba(243,156,18,0.08);
+    border-top: 1px solid rgba(243,156,18,0.2);
+    color: var(--warning);
+    font-size: 0.72rem;
+    padding: 6px 20px;
+    text-align: center;
+    z-index: 50;
+    letter-spacing: 0.01em;
+}
+/* Ajuste para páginas sem sidebar de calendário */
+.dashboard-container.multi-page ~ .aviso-medico-footer {
+    left: 220px;
+}
 
 .sidebar-footer { 
     padding: 16px 16px 0 16px; /* 🚀 Ajustado: adiciona espaçamento nas laterais para descolar o botão da borda */
