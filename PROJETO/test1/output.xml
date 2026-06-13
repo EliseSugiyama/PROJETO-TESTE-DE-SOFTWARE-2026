@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.4 on win32)" generated="2026-06-12T23:52:01.370565" rpa="false" schemaversion="5">
+<suite id="s1" name="Cadastro" source="C:\Users\Usuario\Desktop\PROJETO-TESTE-DE-SOFTWARE-2026\PROJETO\test1\cadastro.robot">
+<kw name="Abrir Navegador" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-06-12T23:52:01.712029" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000'.</msg>
+<msg time="2026-06-12T23:52:05.831594" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-06-12T23:52:05.831843" level="FAIL">WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=149.0.7827.103)
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7a665fd95+15395]
+	chromedriver!GetHandleVerifier [0x7ff7a665fdf0+153f0]
+	chromedriver!(No symbol) [0x7ff7a61978fd]
+	chromedriver!(No symbol) [0x7ff7a619448e]
+	chromedriver!(No symbol) [0x7ff7a6184701]
+	chromedriver!(No symbol) [0x7ff7a618656f]
+	chromedriver!(No symbol) [0x7ff7a6184ca3]
+	chromedriver!(No symbol) [0x7ff7a618446b]
+	chromedriver!(No symbol) [0x7ff7a6184121]
+	chromedriver!(No symbol) [0x7ff7a6181e0b]
+	chromedriver!(No symbol) [0x7ff7a6182552]
+	chromedriver!(No symbol) [0x7ff7a619bba6]
+	chromedriver!(No symbol) [0x7ff7a623f8e4]
+	chromedriver!(No symbol) [0x7ff7a6219d7a]
+	chromedriver!(No symbol) [0x7ff7a623eaeb]
+	chromedriver!(No symbol) [0x7ff7a61e3a58]
+	chromedriver!(No symbol) [0x7ff7a61e4953]
+	chromedriver!GetHandleVerifier [0x7ff7a6c25511+5dab11]
+	chromedriver!GetHandleVerifier [0x7ff7a6c1f8fb+5d4efb]
+	chromedriver!GetHandleVerifier [0x7ff7a6c43205+5f8805]
+	chromedriver!GetHandleVerifier [0x7ff7a667cc6e+3226e]
+	chromedriver!GetHandleVerifier [0x7ff7a668562c+3ac2c]
+	chromedriver!GetHandleVerifier [0x7ff7a6669984+1ef84]
+	chromedriver!GetHandleVerifier [0x7ff7a6669b14+1f114]
+	chromedriver!GetHandleVerifier [0x7ff7a664ca77+2077]
+	KERNEL32!BaseThreadInitThunk [0x7ffe41b6e957+17]
+	ntdll!RtlUserThreadStart [0x7ffe430e7c1c+2c]
+</msg>
+<arg>${URL_BASE}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="FAIL" start="2026-06-12T23:52:01.711687" elapsed="4.124396">WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=149.0.7827.103)
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7a665fd95+15395]
+	chromedriver!GetHandleVerifier [0x7ff7a665fdf0+153f0]
+	chromedriver!(No symbol) [0x7ff7a61978fd]
+	chromedriver!(No symbol) [0x7ff7a619448e]
+	chromedriver!(No symbol) [0x7ff7a6184701]
+	chromedriver!(No symbol) [0x7ff7a618656f]
+	chromedriver!(No symbol) [0x7ff7a6184ca3]
+	chromedriver!(No symbol) [0x7ff7a618446b]
+	chromedriver!(No symbol) [0x7ff7a6184121]
+	chromedriver!(No symbol) [0x7ff7a6181e0b]
+	chromedriver!(No symbol) [0x7ff7a6182552]
+	chromedriver!(No symbol) [0x7ff7a619bba6]
+	chromedriver!(No symbol) [0x7ff7a623f8e4]
+	chromedriver!(No symbol) [0x7ff7a6219d7a]
+	chromedriver!(No symbol) [0x7ff7a623eaeb]
+	chromedriver!(No symbol) [0x7ff7a61e3a58]
+	chromedriver!(No symbol) [0x7ff7a61e4953]
+	chromedriver!GetHandleVerifier [0x7ff7a6c25511+5dab11]
+	chromedriver!GetHandleVerifier [0x7ff7a6c1f8fb+5d4efb]
+	chromedriver!GetHandleVerifier [0x7ff7a6c43205+5f8805]
+	chromedriver!GetHandleVerifier [0x7ff7a667cc6e+3226e]
+	chromedriver!GetHandleVerifier [0x7ff7a668562c+3ac2c]
+	chromedriver!GetHandleVerifier [0x7ff7a6669984+1ef84]
+	chromedriver!GetHandleVerifier [0x7ff7a6669b14+1f114]
+	chromedriver!GetHandleVerifier [0x7ff7a664ca77+2077]
+	KERNEL32!BaseThreadInitThunk [0x7ffe41b6e957+17]
+	ntdll!RtlUserThreadStart [0x7ffe430e7c1c+2c]
+</status>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="NOT RUN" start="2026-06-12T23:52:05.836907" elapsed="0.000070"/>
+</kw>
+<status status="FAIL" start="2026-06-12T23:52:01.710941" elapsed="4.126247">WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=149.0.7827.103)
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7a665fd95+15395]
+	chromedriver!GetHandleVerifier [0x7ff7a665fdf0+153f0]
+	chromedriver!(No symbol) [0x7ff7a61978fd]
+	chromedriver!(No symbol) [0x7ff7a619448e]
+	chromedriver!(No symbol) [0x7ff7a6184701]
+	chromedriver!(No symbol) [0x7ff7a618656f]
+	chromedriver!(No symbol) [0x7ff7a6184ca3]
+	chromedriver!(No symbol) [0x7ff7a618446b]
+	chromedriver!(No symbol) [0x7ff7a6184121]
+	chromedriver!(No symbol) [0x7ff7a6181e0b]
+	chromedriver!(No symbol) [0x7ff7a6182552]
+	chromedriver!(No symbol) [0x7ff7a619bba6]
+	chromedriver!(No symbol) [0x7ff7a623f8e4]
+	chromedriver!(No symbol) [0x7ff7a6219d7a]
+	chromedriver!(No symbol) [0x7ff7a623eaeb]
+	chromedriver!(No symbol) [0x7ff7a61e3a58]
+	chromedriver!(No symbol) [0x7ff7a61e4953]
+	chromedriver!GetHandleVerifier [0x7ff7a6c25511+5dab11]
+	chromedriver!GetHandleVerifier [0x7ff7a6c1f8fb+5d4efb]
+	chromedriver!GetHandleVerifier [0x7ff7a6c43205+5f8805]
+	chromedriver!GetHandleVerifier [0x7ff7a667cc6e+3226e]
+	chromedriver!GetHandleVerifier [0x7ff7a668562c+3ac2c]
+	chromedriver!GetHandleVerifier [0x7ff7a6669984+1ef84]
+	chromedriver!GetHandleVerifier [0x7ff7a6669b14+1f114]
+	chromedriver!GetHandleVerifier [0x7ff7a664ca77+2077]
+	KERNEL32!BaseThreadInitThunk [0x7ffe41b6e957+17]
+	ntdll!RtlUserThreadStart [0x7ffe430e7c1c+2c]
+</status>
+</kw>
+<test id="s1-t1" name="CT01 - Deve carregar a pagina de configuracoes apos autenticacao" line="29">
+<doc>Verifica que a pagina de configuracoes carrega corretamente para usuario autenticado</doc>
+<status status="FAIL" start="2026-06-12T23:52:05.837313" elapsed="0.000666">Parent suite setup failed:
+WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=149.0.7827.103)
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7a665fd95+15395]
+	chromedriver!GetHandleVerifier [0x7ff7a665fdf0+153f0]
+	chromedriver!(No symbol) [0x7ff7a61978fd]
+	chromedriver!(No symbol) [0x7ff7a619448e]
+	chromedriver!(No symbol) [0x7ff7a6184701]
+	chromedriver!(No symbol) [0x7ff7a618656f]
+	chromedriver!(No symbol) [0x7ff7a6184ca3]
+	chromedriver!(No symbol) [0x7ff7a618446b]
+	chromedriver!(No symbol) [0x7ff7a6184121]
+	chromedriver!(No symbol) [0x7ff7a6181e0b]
+	chromedriver!(No symbol) [0x7ff7a6182552]
+	chromedriver!(No symbol) [0x7ff7a619bba6]
+	chromedriver!(No symbol) [0x7ff7a623f8e4]
+	chromedriver!(No symbol) [0x7ff7a6219d7a]
+	chromedriver!(No symbol) [0x7ff7a623eaeb]
+	chromedriver!(No symbol) [0x7ff7a61e3a58]
+	chromedriver!(No symbol) [0x7ff7a61e4953]
+	chromedriver!GetHandleVerifier [0x7ff7a6c25511+5dab11]
+	chromedriver!GetHandleVerifier [0x7ff7a6c1f8fb+5d4efb]
+	chromedriver!GetHandleVerifier [0x7ff7a6c43205+5f8805]
+	chromedriver!GetHandleVerifier [0x7ff7a667cc6e+3226e]
+	chromedriver!GetHandleVerifier [0x7ff7a668562c+3ac2c]
+	chromedriver!GetHandleVerifier [0x7ff7a6669984+1ef84]
+	chromedriver!GetHandleVerifier [0x7ff7a6669b14+1f114]
+	chromedriver!GetHandleVerifier [0x7ff7a664ca77+2077]
+	KERNEL32!BaseThreadInitThunk [0x7ffe41b6e957+17]
+	ntdll!RtlUserThreadStart [0x7ffe430e7c1c+2c]
+</status>
+</test>
+<test id="s1-t2" name="CT02 - Deve exibir o nome atual do usuario no formulario" line="36">
+<doc>Verifica que o campo nome esta pre-preenchido com os dados do usuario logado</doc>
+<status status="FAIL" start="2026-06-12T23:52:05.838665" elapsed="0.000709">Parent suite setup failed:
+WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=149.0.7827.103)
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7a665fd95+15395]
+	chromedriver!GetHandleVerifier [0x7ff7a665fdf0+153f0]
+	chromedriver!(No symbol) [0x7ff7a61978fd]
+	chromedriver!(No symbol) [0x7ff7a619448e]
+	chromedriver!(No symbol) [0x7ff7a6184701]
+	chromedriver!(No symbol) [0x7ff7a618656f]
+	chromedriver!(No symbol) [0x7ff7a6184ca3]
+	chromedriver!(No symbol) [0x7ff7a618446b]
+	chromedriver!(No symbol) [0x7ff7a6184121]
+	chromedriver!(No symbol) [0x7ff7a6181e0b]
+	chromedriver!(No symbol) [0x7ff7a6182552]
+	chromedriver!(No symbol) [0x7ff7a619bba6]
+	chromedriver!(No symbol) [0x7ff7a623f8e4]
+	chromedriver!(No symbol) [0x7ff7a6219d7a]
+	chromedriver!(No symbol) [0x7ff7a623eaeb]
+	chromedriver!(No symbol) [0x7ff7a61e3a58]
+	chromedriver!(No symbol) [0x7ff7a61e4953]
+	chromedriver!GetHandleVerifier [0x7ff7a6c25511+5dab11]
+	chromedriver!GetHandleVerifier [0x7ff7a6c1f8fb+5d4efb]
+	chromedriver!GetHandleVerifier [0x7ff7a6c43205+5f8805]
+	chromedriver!GetHandleVerifier [0x7ff7a667cc6e+3226e]
+	chromedriver!GetHandleVerifier [0x7ff7a668562c+3ac2c]
+	chromedriver!GetHandleVerifier [0x7ff7a6669984+1ef84]
+	chromedriver!GetHandleVerifier [0x7ff7a6669b14+1f114]
+	chromedriver!GetHandleVerifier [0x7ff7a664ca77+2077]
+	KERNEL32!BaseThreadInitThunk [0x7ffe41b6e957+17]
+	ntdll!RtlUserThreadStart [0x7ffe430e7c1c+2c]
+</status>
+</test>
+<test id="s1-t3" name="CT03 - Deve atualizar o nome exibido na sidebar ao salvar" line="44">
+<doc>Verifica que salvar alteracoes atualiza o perfil na barra lateral</doc>
+<status status="FAIL" start="2026-06-12T23:52:05.839881" elapsed="0.000423">Parent suite setup failed:
+WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=149.0.7827.103)
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7a665fd95+15395]
+	chromedriver!GetHandleVerifier [0x7ff7a665fdf0+153f0]
+	chromedriver!(No symbol) [0x7ff7a61978fd]
+	chromedriver!(No symbol) [0x7ff7a619448e]
+	chromedriver!(No symbol) [0x7ff7a6184701]
+	chromedriver!(No symbol) [0x7ff7a618656f]
+	chromedriver!(No symbol) [0x7ff7a6184ca3]
+	chromedriver!(No symbol) [0x7ff7a618446b]
+	chromedriver!(No symbol) [0x7ff7a6184121]
+	chromedriver!(No symbol) [0x7ff7a6181e0b]
+	chromedriver!(No symbol) [0x7ff7a6182552]
+	chromedriver!(No symbol) [0x7ff7a619bba6]
+	chromedriver!(No symbol) [0x7ff7a623f8e4]
+	chromedriver!(No symbol) [0x7ff7a6219d7a]
+	chromedriver!(No symbol) [0x7ff7a623eaeb]
+	chromedriver!(No symbol) [0x7ff7a61e3a58]
+	chromedriver!(No symbol) [0x7ff7a61e4953]
+	chromedriver!GetHandleVerifier [0x7ff7a6c25511+5dab11]
+	chromedriver!GetHandleVerifier [0x7ff7a6c1f8fb+5d4efb]
+	chromedriver!GetHandleVerifier [0x7ff7a6c43205+5f8805]
+	chromedriver!GetHandleVerifier [0x7ff7a667cc6e+3226e]
+	chromedriver!GetHandleVerifier [0x7ff7a668562c+3ac2c]
+	chromedriver!GetHandleVerifier [0x7ff7a6669984+1ef84]
+	chromedriver!GetHandleVerifier [0x7ff7a6669b14+1f114]
+	chromedriver!GetHandleVerifier [0x7ff7a664ca77+2077]
+	KERNEL32!BaseThreadInitThunk [0x7ffe41b6e957+17]
+	ntdll!RtlUserThreadStart [0x7ffe430e7c1c+2c]
+</status>
+</test>
+<test id="s1-t4" name="CT04 - Deve atualizar o subtitulo exibido na sidebar ao salvar" line="56">
+<doc>Verifica que o campo subtitulo e salvo e exibido na sidebar corretamente</doc>
+<status status="FAIL" start="2026-06-12T23:52:05.840737" elapsed="0.000400">Parent suite setup failed:
+WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=149.0.7827.103)
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7a665fd95+15395]
+	chromedriver!GetHandleVerifier [0x7ff7a665fdf0+153f0]
+	chromedriver!(No symbol) [0x7ff7a61978fd]
+	chromedriver!(No symbol) [0x7ff7a619448e]
+	chromedriver!(No symbol) [0x7ff7a6184701]
+	chromedriver!(No symbol) [0x7ff7a618656f]
+	chromedriver!(No symbol) [0x7ff7a6184ca3]
+	chromedriver!(No symbol) [0x7ff7a618446b]
+	chromedriver!(No symbol) [0x7ff7a6184121]
+	chromedriver!(No symbol) [0x7ff7a6181e0b]
+	chromedriver!(No symbol) [0x7ff7a6182552]
+	chromedriver!(No symbol) [0x7ff7a619bba6]
+	chromedriver!(No symbol) [0x7ff7a623f8e4]
+	chromedriver!(No symbol) [0x7ff7a6219d7a]
+	chromedriver!(No symbol) [0x7ff7a623eaeb]
+	chromedriver!(No symbol) [0x7ff7a61e3a58]
+	chromedriver!(No symbol) [0x7ff7a61e4953]
+	chromedriver!GetHandleVerifier [0x7ff7a6c25511+5dab11]
+	chromedriver!GetHandleVerifier [0x7ff7a6c1f8fb+5d4efb]
+	chromedriver!GetHandleVerifier [0x7ff7a6c43205+5f8805]
+	chromedriver!GetHandleVerifier [0x7ff7a667cc6e+3226e]
+	chromedriver!GetHandleVerifier [0x7ff7a668562c+3ac2c]
+	chromedriver!GetHandleVerifier [0x7ff7a6669984+1ef84]
+	chromedriver!GetHandleVerifier [0x7ff7a6669b14+1f114]
+	chromedriver!GetHandleVerifier [0x7ff7a664ca77+2077]
+	KERNEL32!BaseThreadInitThunk [0x7ffe41b6e957+17]
+	ntdll!RtlUserThreadStart [0x7ffe430e7c1c+2c]
+</status>
+</test>
+<test id="s1-t5" name="CT05 - Deve exibir avatar com inicial do nome" line="68">
+<doc>Verifica que o avatar exibe a primeira letra do nome do usuario</doc>
+<status status="FAIL" start="2026-06-12T23:52:05.841585" elapsed="0.000469">Parent suite setup failed:
+WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=149.0.7827.103)
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7a665fd95+15395]
+	chromedriver!GetHandleVerifier [0x7ff7a665fdf0+153f0]
+	chromedriver!(No symbol) [0x7ff7a61978fd]
+	chromedriver!(No symbol) [0x7ff7a619448e]
+	chromedriver!(No symbol) [0x7ff7a6184701]
+	chromedriver!(No symbol) [0x7ff7a618656f]
+	chromedriver!(No symbol) [0x7ff7a6184ca3]
+	chromedriver!(No symbol) [0x7ff7a618446b]
+	chromedriver!(No symbol) [0x7ff7a6184121]
+	chromedriver!(No symbol) [0x7ff7a6181e0b]
+	chromedriver!(No symbol) [0x7ff7a6182552]
+	chromedriver!(No symbol) [0x7ff7a619bba6]
+	chromedriver!(No symbol) [0x7ff7a623f8e4]
+	chromedriver!(No symbol) [0x7ff7a6219d7a]
+	chromedriver!(No symbol) [0x7ff7a623eaeb]
+	chromedriver!(No symbol) [0x7ff7a61e3a58]
+	chromedriver!(No symbol) [0x7ff7a61e4953]
+	chromedriver!GetHandleVerifier [0x7ff7a6c25511+5dab11]
+	chromedriver!GetHandleVerifier [0x7ff7a6c1f8fb+5d4efb]
+	chromedriver!GetHandleVerifier [0x7ff7a6c43205+5f8805]
+	chromedriver!GetHandleVerifier [0x7ff7a667cc6e+3226e]
+	chromedriver!GetHandleVerifier [0x7ff7a668562c+3ac2c]
+	chromedriver!GetHandleVerifier [0x7ff7a6669984+1ef84]
+	chromedriver!GetHandleVerifier [0x7ff7a6669b14+1f114]
+	chromedriver!GetHandleVerifier [0x7ff7a664ca77+2077]
+	KERNEL32!BaseThreadInitThunk [0x7ffe41b6e957+17]
+	ntdll!RtlUserThreadStart [0x7ffe430e7c1c+2c]
+</status>
+</test>
+<test id="s1-t6" name="CT06 - Deve redirecionar para login ao clicar em Sair" line="77">
+<doc>Verifica que o botao de logout limpa a sessao e redireciona para o login</doc>
+<status status="FAIL" start="2026-06-12T23:52:05.842662" elapsed="0.000610">Parent suite setup failed:
+WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=149.0.7827.103)
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7a665fd95+15395]
+	chromedriver!GetHandleVerifier [0x7ff7a665fdf0+153f0]
+	chromedriver!(No symbol) [0x7ff7a61978fd]
+	chromedriver!(No symbol) [0x7ff7a619448e]
+	chromedriver!(No symbol) [0x7ff7a6184701]
+	chromedriver!(No symbol) [0x7ff7a618656f]
+	chromedriver!(No symbol) [0x7ff7a6184ca3]
+	chromedriver!(No symbol) [0x7ff7a618446b]
+	chromedriver!(No symbol) [0x7ff7a6184121]
+	chromedriver!(No symbol) [0x7ff7a6181e0b]
+	chromedriver!(No symbol) [0x7ff7a6182552]
+	chromedriver!(No symbol) [0x7ff7a619bba6]
+	chromedriver!(No symbol) [0x7ff7a623f8e4]
+	chromedriver!(No symbol) [0x7ff7a6219d7a]
+	chromedriver!(No symbol) [0x7ff7a623eaeb]
+	chromedriver!(No symbol) [0x7ff7a61e3a58]
+	chromedriver!(No symbol) [0x7ff7a61e4953]
+	chromedriver!GetHandleVerifier [0x7ff7a6c25511+5dab11]
+	chromedriver!GetHandleVerifier [0x7ff7a6c1f8fb+5d4efb]
+	chromedriver!GetHandleVerifier [0x7ff7a6c43205+5f8805]
+	chromedriver!GetHandleVerifier [0x7ff7a667cc6e+3226e]
+	chromedriver!GetHandleVerifier [0x7ff7a668562c+3ac2c]
+	chromedriver!GetHandleVerifier [0x7ff7a6669984+1ef84]
+	chromedriver!GetHandleVerifier [0x7ff7a6669b14+1f114]
+	chromedriver!GetHandleVerifier [0x7ff7a664ca77+2077]
+	KERNEL32!BaseThreadInitThunk [0x7ffe41b6e957+17]
+	ntdll!RtlUserThreadStart [0x7ffe430e7c1c+2c]
+</status>
+</test>
+<test id="s1-t7" name="CT07 - Deve redirecionar para login sem autenticacao" line="86">
+<doc>Verifica que acessar configuracoes sem estar logado redireciona para o login</doc>
+<status status="FAIL" start="2026-06-12T23:52:05.843732" elapsed="0.000428">Parent suite setup failed:
+WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=149.0.7827.103)
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7a665fd95+15395]
+	chromedriver!GetHandleVerifier [0x7ff7a665fdf0+153f0]
+	chromedriver!(No symbol) [0x7ff7a61978fd]
+	chromedriver!(No symbol) [0x7ff7a619448e]
+	chromedriver!(No symbol) [0x7ff7a6184701]
+	chromedriver!(No symbol) [0x7ff7a618656f]
+	chromedriver!(No symbol) [0x7ff7a6184ca3]
+	chromedriver!(No symbol) [0x7ff7a618446b]
+	chromedriver!(No symbol) [0x7ff7a6184121]
+	chromedriver!(No symbol) [0x7ff7a6181e0b]
+	chromedriver!(No symbol) [0x7ff7a6182552]
+	chromedriver!(No symbol) [0x7ff7a619bba6]
+	chromedriver!(No symbol) [0x7ff7a623f8e4]
+	chromedriver!(No symbol) [0x7ff7a6219d7a]
+	chromedriver!(No symbol) [0x7ff7a623eaeb]
+	chromedriver!(No symbol) [0x7ff7a61e3a58]
+	chromedriver!(No symbol) [0x7ff7a61e4953]
+	chromedriver!GetHandleVerifier [0x7ff7a6c25511+5dab11]
+	chromedriver!GetHandleVerifier [0x7ff7a6c1f8fb+5d4efb]
+	chromedriver!GetHandleVerifier [0x7ff7a6c43205+5f8805]
+	chromedriver!GetHandleVerifier [0x7ff7a667cc6e+3226e]
+	chromedriver!GetHandleVerifier [0x7ff7a668562c+3ac2c]
+	chromedriver!GetHandleVerifier [0x7ff7a6669984+1ef84]
+	chromedriver!GetHandleVerifier [0x7ff7a6669b14+1f114]
+	chromedriver!GetHandleVerifier [0x7ff7a664ca77+2077]
+	KERNEL32!BaseThreadInitThunk [0x7ffe41b6e957+17]
+	ntdll!RtlUserThreadStart [0x7ffe430e7c1c+2c]
+</status>
+</test>
+<kw name="Fechar Navegador" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-06-12T23:52:05.845362" elapsed="2.188784"/>
+</kw>
+<status status="PASS" start="2026-06-12T23:52:05.845118" elapsed="2.189190"/>
+</kw>
+<status status="FAIL" start="2026-06-12T23:52:01.372914" elapsed="6.661444">Suite setup failed:
+WebDriverException: Message: unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=149.0.7827.103)
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7a665fd95+15395]
+	chromedriver!GetHandleVerifier [0x7ff7a665fdf0+153f0]
+	chromedriver!(No symbol) [0x7ff7a61978fd]
+	chromedriver!(No symbol) [0x7ff7a619448e]
+	chromedriver!(No symbol) [0x7ff7a6184701]
+	chromedriver!(No symbol) [0x7ff7a618656f]
+	chromedriver!(No symbol) [0x7ff7a6184ca3]
+	chromedriver!(No symbol) [0x7ff7a618446b]
+	chromedriver!(No symbol) [0x7ff7a6184121]
+	chromedriver!(No symbol) [0x7ff7a6181e0b]
+	chromedriver!(No symbol) [0x7ff7a6182552]
+	chromedriver!(No symbol) [0x7ff7a619bba6]
+	chromedriver!(No symbol) [0x7ff7a623f8e4]
+	chromedriver!(No symbol) [0x7ff7a6219d7a]
+	chromedriver!(No symbol) [0x7ff7a623eaeb]
+	chromedriver!(No symbol) [0x7ff7a61e3a58]
+	chromedriver!(No symbol) [0x7ff7a61e4953]
+	chromedriver!GetHandleVerifier [0x7ff7a6c25511+5dab11]
+	chromedriver!GetHandleVerifier [0x7ff7a6c1f8fb+5d4efb]
+	chromedriver!GetHandleVerifier [0x7ff7a6c43205+5f8805]
+	chromedriver!GetHandleVerifier [0x7ff7a667cc6e+3226e]
+	chromedriver!GetHandleVerifier [0x7ff7a668562c+3ac2c]
+	chromedriver!GetHandleVerifier [0x7ff7a6669984+1ef84]
+	chromedriver!GetHandleVerifier [0x7ff7a6669b14+1f114]
+	chromedriver!GetHandleVerifier [0x7ff7a664ca77+2077]
+	KERNEL32!BaseThreadInitThunk [0x7ffe41b6e957+17]
+	ntdll!RtlUserThreadStart [0x7ffe430e7c1c+2c]
+</status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="7" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Cadastro" id="s1" pass="0" fail="7" skip="0">Cadastro</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
