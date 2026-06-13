@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.13.7 on win32)" generated="2026-06-13T05:11:20.301947" rpa="false" schemaversion="5">
+<suite id="s1" name="Teste-Interface-Dois" source="C:\Users\Elise\OneDrive\Área de Trabalho\GitHub\PROJETO-TESTE-DE-SOFTWARE-2026\PROJETO\testes-elise\teste-interface-dois.robot">
+<test id="s1-t1" name="CT01 - Cadastro com credenciais válidas" line="31">
+<kw name="Abrir Página de Cadastro" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-06-13T05:11:20.486372" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000/cadastro'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-06-13T05:11:20.486208" elapsed="0.663984"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-06-13T05:11:21.150518" elapsed="0.031337"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_NOME}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-13T05:11:21.182079" elapsed="0.014090"/>
+</kw>
+<status status="PASS" start="2026-06-13T05:11:20.485549" elapsed="0.710724"/>
+</kw>
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2026-06-13T05:11:21.199281" level="INFO">Page title is 'FamilyCare — Cadastro'.</msg>
+<arg>FamilyCare — Cadastro</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2026-06-13T05:11:21.196500" elapsed="0.002852"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_NOME}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-13T05:11:21.199676" elapsed="0.028836"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-13T05:11:21.228987" level="INFO">Typing text 'Nome Sobrenome' into text field 'id=reg-name'.</msg>
+<arg>${INPUT_NOME}</arg>
+<arg>${NOME_VALIDO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-13T05:11:21.228746" elapsed="0.050203"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_EMAIL}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-13T05:11:21.279181" elapsed="0.019180"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-13T05:11:21.298880" level="INFO">Typing text 'user2@email.com' into text field 'id=reg-email'.</msg>
+<arg>${INPUT_EMAIL}</arg>
+<arg>${EMAIL_VALIDO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-13T05:11:21.298612" elapsed="0.046910"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_SENHA}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-13T05:11:21.345796" elapsed="0.022192"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-06-13T05:11:21.368477" level="INFO">Typing password into text field 'id=reg-password'.</msg>
+<msg time="2026-06-13T05:11:21.385648" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_SENHA}</arg>
+<arg>${SENHA_VALIDA}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-13T05:11:21.368231" elapsed="0.044603"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-13T05:11:21.413283" level="INFO">Clicking button 'css=.btn-primary'.</msg>
+<arg>${BOTAO_CADASTRO}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-13T05:11:21.413074" elapsed="0.048552"/>
+</kw>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2026-06-13T05:11:21.462106" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<msg time="2026-06-13T05:11:21.468229" level="INFO">${alerta} = Conta criada com sucesso! Faca login para continuar.</msg>
+<var>${alerta}</var>
+<arg>action=ACCEPT</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2026-06-13T05:11:21.461958" elapsed="0.006310"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${alerta}</arg>
+<arg>Conta criada com sucesso! Faca login para continuar.</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2026-06-13T05:11:21.468525" elapsed="0.000606"/>
+</kw>
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>${PAGINA_LOGIN}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-06-13T05:11:21.469373" elapsed="0.033973"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-06-13T05:11:21.503774" elapsed="2.108144"/>
+</kw>
+<status status="PASS" start="2026-06-13T05:11:20.484739" elapsed="3.127430"/>
+</test>
+<test id="s1-t2" name="CT02 - Campo NOME vazio" line="44">
+<kw name="Abrir Página de Cadastro" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-06-13T05:11:23.613401" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000/cadastro'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-06-13T05:11:23.613217" elapsed="0.669691"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-06-13T05:11:24.283093" elapsed="0.032988"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_NOME}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-13T05:11:24.316226" elapsed="0.013054"/>
+</kw>
+<status status="PASS" start="2026-06-13T05:11:23.612991" elapsed="0.716384"/>
+</kw>
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2026-06-13T05:11:24.332642" level="INFO">Page title is 'FamilyCare — Cadastro'.</msg>
+<arg>FamilyCare — Cadastro</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2026-06-13T05:11:24.329589" elapsed="0.003147"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_EMAIL}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-13T05:11:24.333005" elapsed="0.029689"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-13T05:11:24.363173" level="INFO">Typing text 'user2@email.com' into text field 'id=reg-email'.</msg>
+<arg>${INPUT_EMAIL}</arg>
+<arg>${EMAIL_VALIDO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-13T05:11:24.362943" elapsed="0.049984"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_SENHA}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-13T05:11:24.413183" elapsed="0.019628"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-06-13T05:11:24.433411" level="INFO">Typing password into text field 'id=reg-password'.</msg>
+<msg time="2026-06-13T05:11:24.449971" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_SENHA}</arg>
+<arg>${SENHA_VALIDA}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-13T05:11:24.433141" elapsed="0.043623"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-13T05:11:24.477255" level="INFO">Clicking button 'css=.btn-primary'.</msg>
+<arg>${BOTAO_CADASTRO}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-13T05:11:24.477019" elapsed="0.049330"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-06-13T05:11:24.526778" level="INFO">Executing JavaScript:
+return document.getElementById('reg-name').validity.valid
+Without any arguments.</msg>
+<msg time="2026-06-13T05:11:24.530273" level="INFO">${valido} = False</msg>
+<var>${valido}</var>
+<arg>return document.getElementById('reg-name').validity.valid</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-06-13T05:11:24.526615" elapsed="0.003694"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${valido}</arg>
+<arg>${False}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-06-13T05:11:24.530548" elapsed="0.000308"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-06-13T05:11:24.531325" elapsed="2.089106"/>
+</kw>
+<status status="PASS" start="2026-06-13T05:11:23.612631" elapsed="3.008095"/>
+</test>
+<test id="s1-t3" name="CT03 - Campo EMAIL vazio" line="54">
+<kw name="Abrir Página de Cadastro" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-06-13T05:11:26.621922" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000/cadastro'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-06-13T05:11:26.621758" elapsed="0.625873"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-06-13T05:11:27.247810" elapsed="0.031350"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_NOME}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-13T05:11:27.279378" elapsed="0.013214"/>
+</kw>
+<status status="PASS" start="2026-06-13T05:11:26.621540" elapsed="0.671173"/>
+</kw>
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2026-06-13T05:11:27.296527" level="INFO">Page title is 'FamilyCare — Cadastro'.</msg>
+<arg>FamilyCare — Cadastro</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2026-06-13T05:11:27.292977" elapsed="0.003630"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_NOME}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-13T05:11:27.296848" elapsed="0.026695"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-13T05:11:27.324084" level="INFO">Typing text 'Nome Sobrenome' into text field 'id=reg-name'.</msg>
+<arg>${INPUT_NOME}</arg>
+<arg>${NOME_VALIDO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-13T05:11:27.323839" elapsed="0.050932"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_SENHA}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-13T05:11:27.375229" elapsed="0.021052"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-06-13T05:11:27.396788" level="INFO">Typing password into text field 'id=reg-password'.</msg>
+<msg time="2026-06-13T05:11:27.412516" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_SENHA}</arg>
+<arg>${SENHA_VALIDA}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-13T05:11:27.396533" elapsed="0.040711"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-13T05:11:27.437730" level="INFO">Clicking button 'css=.btn-primary'.</msg>
+<arg>${BOTAO_CADASTRO}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-13T05:11:27.437501" elapsed="0.048271"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-06-13T05:11:27.486207" level="INFO">Executing JavaScript:
+return document.getElementById('reg-email').validity.valid
+Without any arguments.</msg>
+<msg time="2026-06-13T05:11:27.490293" level="INFO">${valido} = False</msg>
+<var>${valido}</var>
+<arg>return document.getElementById('reg-email').validity.valid</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-06-13T05:11:27.486042" elapsed="0.004324"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${valido}</arg>
+<arg>${False}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-06-13T05:11:27.490649" elapsed="0.000362"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-06-13T05:11:27.491466" elapsed="2.105831"/>
+</kw>
+<status status="PASS" start="2026-06-13T05:11:26.621185" elapsed="2.976335"/>
+</test>
