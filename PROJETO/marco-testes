@@ -1,0 +1,115 @@
+* Settings *
+Library    SeleniumLibrary
+
+Suite Setup       Abrir Navegador
+Suite Teardown    Fechar Navegador
+
+* Variables *
+${URL}                  http://localhost:3000/cadastro
+${BROWSER}              chrome
+
+${INPUT_NOME}           id=reg-name
+${INPUT_EMAIL}          id=reg-email
+${INPUT_SENHA}          id=reg-password
+${BOTAO_CADASTRAR}      css=#cadastro-form button[type="submit"]
+
+# Email unico por execucao para evitar duplicata no banco
+${EMAIL_VALIDO}         marco@email.com
+${NOME_VALIDO}          Marco
+${SENHA_VALIDA}         SenhaCerta
+
+* Test Cases *
+
+CT01 - Deve realizar cadastro com dados validos
+    [Documentation]    Verifica que um usuario com dados corretos consegue criar conta
+    Acessar Pagina De Cadastro
+    Preencher Nome          ${NOME_VALIDO}
+    Preencher Email         ct01.${EMAIL_VALIDO}
+    Preencher Senha         ${SENHA_VALIDA}
+    Submeter Formulario
+    ${alert_text}=    Handle Alert    action=ACCEPT
+    Should Contain    ${alert_text}    sucesso
+
+CT02 - Deve bloquear cadastro com nome vazio
+    [Documentation]    Verifica que o navegador exige o campo nome (campo required)
+    Acessar Pagina De Cadastro
+    Preencher Email         ct02.${EMAIL_VALIDO}
+    Preencher Senha         ${SENHA_VALIDA}
+    Submeter Formulario
+    # Campo com "required" impede o submit — o formulario nao deve chamar a API
+    ${validacao}=    Get Element Attribute    ${INPUT_NOME}    validationMessage
+    Should Not Be Empty    ${validacao}
+
+CT03 - Deve bloquear cadastro com email invalido
+    [Documentation]    Verifica que o navegador rejeita email sem formato valido
+    Acessar Pagina De Cadastro
+    Preencher Nome          ${NOME_VALIDO}
+    Preencher Email         emailsemarroba.com
+    Preencher Senha         ${SENHA_VALIDA}
+    Submeter Formulario
+    ${validacao}=    Get Element Attribute    ${INPUT_EMAIL}    validationMessage
+    Should Not Be Empty    ${validacao}
+
+CT04 - Deve bloquear cadastro com senha curta
+    [Documentation]    Verifica que o navegador rejeita senha com menos de 6 caracteres (minlength=6)
+    Acessar Pagina De Cadastro
+    Preencher Nome          ${NOME_VALIDO}
+    Preencher Email         ct04.${EMAIL_VALIDO}
+    Preencher Senha         123
+    Submeter Formulario
+    ${validacao}=    Get Element Attribute    ${INPUT_SENHA}    validationMessage
+    Should Not Be Empty    ${validacao}
+
+CT05 - Deve bloquear cadastro com email ja existente
+    [Documentation]    Verifica que a API retorna erro ao cadastrar email duplicado
+    # Garante que o email ja existe no banco
+    Acessar Pagina De Cadastro
+    Preencher Nome          ${NOME_VALIDO}
+    Preencher Email         ${EMAIL_VALIDO}
+    Preencher Senha         ${SENHA_VALIDA}
+    Submeter Formulario
+    Handle Alert    action=ACCEPT
+    # Tenta cadastrar o mesmo email novamente
+    Acessar Pagina De Cadastro
+    Preencher Nome          Outro Nome
+    Preencher Email         ${EMAIL_VALIDO}
+    Preencher Senha         ${SENHA_VALIDA}
+    Submeter Formulario
+    ${alert_text}=    Handle Alert    action=ACCEPT
+    Should Contain    ${alert_text}    cadastrado
+
+CT06 - Deve exibir link para pagina de login
+    [Documentation]    Verifica que existe link de redirecionamento para a tela de login
+    Acessar Pagina De Cadastro
+    Page Should Contain Link    Faca login aqui
+
+* Keywords *
+
+Abrir Navegador
+    Open Browser    ${URL}    ${BROWSER}
+    Maximize Browser Window
+
+Fechar Navegador
+    Close Browser
+
+Acessar Pagina De Cadastro
+    Go To       ${URL}
+    Wait Until Element Is Visible    ${INPUT_NOME}    timeout=5s
+
+Preencher Nome
+    [Arguments]    ${nome}
+    Clear Element Text    ${INPUT_NOME}
+    Input Text    ${INPUT_NOME}    ${nome}
+
+Preencher Email
+    [Arguments]    ${email}
+    Clear Element Text    ${INPUT_EMAIL}
+    Input Text    ${INPUT_EMAIL}    ${email}
+
+Preencher Senha
+    [Arguments]    ${senha}
+    Clear Element Text    ${INPUT_SENHA}
+    Input Password    ${INPUT_SENHA}    ${senha}
+
+Submeter Formulario
+    Click Button    ${BOTAO_CADASTRAR}
